@@ -1,0 +1,33 @@
+<div class="container">
+  <body>
+    <h1>Welcome</h1>
+    <app-add-expense></app-add-expense>
+    <br />
+    <app-expense-history
+      (filteredData)="updateCharts($event)"
+      (allDataEvent)="updateCharts($event)">
+    </app-expense-history>
+  </body>
+</div>
+
+<!-- Bar Chart -->
+<div *ngIf="barChartOptions?.series.length" class="chart-main">
+  <div id="chart">
+    <apx-chart
+      [series]="barChartOptions?.series"
+      [chart]="barChartOptions?.chart"
+      [xaxis]="barChartOptions?.xaxis"
+      [title]="barChartOptions?.title">
+    </apx-chart>
+  </div>
+</div>
+
+<!-- Pie Chart -->
+<div *ngIf="pieChartOptions?.series.length" id="chart">
+  <apx-chart
+    [series]="pieChartOptions?.series"
+    [chart]="pieChartOptions?.chart"
+    [labels]="pieChartOptions?.labels"
+    [title]="pieChartOptions?.title">
+    </apx-chart>
+</div>

@@ -1,0 +1,32 @@
+<div class="profile-container">
+    <h2>Edit Profile</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="profile-pic">
+        <img [src]="profileImage || defaultImage" alt="Profile Picture">
+        <label>
+          Change Picture
+          <input type="file" (change)="onImageChange($event)" accept="image/*">
+        </label>
+      </div>
+  
+      <div class="profile-form">
+        <label for="name">Name:</label>
+        <input formControlName="name" placeholder="Enter new name" id="name" required>
+  
+        <label for="email">Email:</label>
+        <input formControlName="email" placeholder="Enter new email" id="email" required>
+  
+        <label for="mobile">Mobile:</label>
+        <input formControlName="mobile" placeholder="Enter new mobile" id="mobile" required>
+  
+        <label for="password">New Password:</label>
+        <input formControlName="password" placeholder="Enter new password" id="password" type="password">
+  
+        <label for="confirmPassword">Confirm Password:</label>
+        <input formControlName="confirmPassword" placeholder="Confirm new password" id="confirmPassword" type="password">
+  
+        <button type="submit" [disabled]="profileForm.invalid">Save Changes</button>
+      </div>
+    </form>
+  </div>
+  

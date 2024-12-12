@@ -1,0 +1,29 @@
+<mat-toolbar class="navbar">
+  <span class="toolbar-title">Expense Manager</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/dashboard" class="nav-item">Home</a>
+  <a mat-button routerLink="/add-expense" class="nav-item">Add Expense</a>
+  <a mat-button routerLink="/expense-summary" class="nav-item">Expense Summary</a>
+  <a
+    mat-button
+    *ngIf="authService.isAuthenticated()"
+    routerLink="/profile"
+    class="nav-item"
+  >
+    Profile
+  </a>
+
+  <span *ngIf="authService.isAuthenticated()" class="user-name">
+    Welcome, {{ userName }}
+  </span>
+
+  <button class="btn"
+    mat-raised-button
+    color="accent"
+    *ngIf="authService.isAuthenticated()"
+    (click)="logout()"
+  >
+    Logout <br>
+    {{ userName }}
+  </button>
+</mat-toolbar>

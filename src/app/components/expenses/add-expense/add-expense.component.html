@@ -1,0 +1,45 @@
+<form [formGroup]="expenseForm" (ngSubmit)="onSubmit()" class="mat-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput id="name" formControlName="name" type="text" />
+    <mat-error *ngIf="expenseForm.get('name')?.invalid && expenseForm.get('name')?.touched">
+      Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input matInput id="amount" formControlName="amount" type="number" />
+    <mat-error *ngIf="expenseForm.get('amount')?.invalid && expenseForm.get('amount')?.touched">
+      Amount is required and must be a valid number
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="expenseForm.get('date')?.invalid && expenseForm.get('date')?.touched">
+      Date is required
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select id="category" formControlName="category">
+      <mat-option value="food">Food</mat-option>
+      <mat-option value="travel">Travel</mat-option>
+      <mat-option value="utilities">Utilities</mat-option>
+      <mat-option value="entertainment">Entertainment</mat-option>
+      <mat-option value="others">Others</mat-option>
+    </mat-select>
+    <mat-error *ngIf="expenseForm.get('category')?.invalid && expenseForm.get('category')?.touched">
+      Category is required
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!expenseForm.valid">
+    Add Expense
+  </button>
+</form>

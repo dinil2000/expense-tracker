@@ -1,0 +1,78 @@
+<div class="signup-container">
+    <div class="signup-form">
+      <h2>Sign Up</h2>
+      <form [formGroup]="signupForm" >
+        
+        <!-- Name Field -->
+<span  class="error" >
+  <small *ngIf="signupForm.errors?.['passwordMismatch']">Passwords do not match.</small>
+  <small *ngIf="signupForm.errors?.['passwordLengthIssue']">Password must be at least 8 characters long.</small>
+  
+</span>
+ 
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" formControlName="name" />
+          <div *ngIf="f['name'].errors && (f['name'].dirty || f['name'].touched)" class="error">
+            <small *ngIf="f['name'].errors['required']">Name is required.</small>
+          </div>
+        </div>
+  
+        <!-- Username Field -->
+        <div class="form-group">
+           <label for="username">Username</label>
+          <input  class="error" type="text" id="userName" formControlName="userName" />
+          <div *ngIf="f['userName'].errors && (f['userName'].dirty || f['userName'].touched)" class="error">
+            <small *ngIf="f['userName'].errors['required']">Username is required.</small>
+            <small *ngIf="f['userName'].errors['minlength']">Username must be at least 4 characters.</small>
+          </div>
+        </div>
+  
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" />
+          <div *ngIf="f['email'].errors && (f['email'].dirty || f['email'].touched)" class="error">
+            <small *ngIf="f['email'].errors['required']">Email is required.</small>
+            <small *ngIf="f['email'].errors['email']">Invalid email format.</small>
+          </div>
+        </div>
+  
+        <!-- Mobile Number Field -->
+        <div class="form-group">
+          <label for="mobile">Mobile Number</label>
+          <input type="text" id="mobile" formControlName="mobile" />
+          <div *ngIf="f['mobile'].errors && (f['mobile'].dirty || f['mobile'].touched)" class="error">
+            <small *ngIf="f['mobile'].errors['required']">Mobile number is required.</small>
+            <small *ngIf="f['mobile'].errors['pattern']">Enter a valid 10-digit mobile number.</small>
+          </div>
+        </div>
+  
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" />
+          <div *ngIf="f['password'].errors && (f['password'].dirty || f['password'].touched)" class="error">
+            <small *ngIf="f['password'].errors['required']">Password is required.</small>
+            <small *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters.</small>
+          </div>
+        </div>
+  
+        <!-- Confirm Password Field -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" formControlName="confirmPassword" />
+          <div *ngIf="f['confirmPassword'].errors && (f['confirmPassword'].dirty || f['confirmPassword'].touched)" class="error">
+            <small *ngIf="f['confirmPassword'].errors['required']">Confirm password is required.</small>
+            <small *ngIf="signupForm.errors?.['mismatch']">Passwords do not match.</small>
+          </div>
+        </div>
+  
+        <button (click)="registerUser()" type="submit" class="signup-button" [disabled]="signupForm.invalid ">Sign Up</button>
+      </form>
+      <p class="login-text">
+        Already have an account? <a routerLink="/login">Log In</a>
+      </p>
+    </div>
+  </div>
+  

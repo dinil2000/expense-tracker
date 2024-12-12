@@ -1,0 +1,124 @@
+<h2>Expense History</h2>
+
+<!-- Filters -->
+<div class="filter-container">
+  <label for="month">Month:</label>
+  <select id="month" [(ngModel)]="selectedMonth" (change)="onFilterChange()">
+    <option *ngFor="let month of months; index as i" [value]="i">
+      {{ month }}
+    </option>
+  </select>
+
+  <label for="year">Year:</label>
+  <select id="year" [(ngModel)]="selectedYear" (change)="onFilterChange()">
+    <option *ngFor="let year of years" [value]="year">
+      {{ year }}
+    </option>
+  </select>
+  <button name="allData" id="allData" (click)="allData()">All Data</button>
+</div>
+
+<!-- Expense Table -->
+<mat-table *ngIf="filteredDataExpense" [dataSource]="filteredExpenses" class="mat-elevation-z8">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let expense"> {{ expense.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Amount Column -->
+  <ng-container matColumnDef="amount">
+    <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+    <mat-cell *matCellDef="let expense">
+      {{ expense.amount | currency: 'INR' }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+    <mat-cell *matCellDef="let expense">
+      {{ expense.date | date: 'shortDate' }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+    <mat-cell *matCellDef="let expense"> {{ expense.category }} </mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let expense">
+      <button mat-icon-button color="primary" (click)="onEditExpense(expense._id,expense)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="onDeleteExpense(expense._id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<!-- All Data Table -->
+<mat-table *ngIf="allfetchedData" [dataSource]="expenses" class="mat-elevation-z8">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let expense"> {{ expense.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Amount Column -->
+  <ng-container matColumnDef="amount">
+    <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+    <mat-cell *matCellDef="let expense">
+      {{ expense.amount | currency: 'INR' }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+    <mat-cell *matCellDef="let expense">
+      {{ expense.date | date: 'shortDate' }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+    <mat-cell *matCellDef="let expense"> {{ expense.category }} </mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let expense">
+      <button mat-icon-button color="primary" (click)="onEditExpense(expense._id,expense)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="onDeleteExpense(expense._id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<!-- Total Row -->
+<div class="total-summary">
+  <h3>Total Expense: {{ totalAmount | currency: 'INR' }}</h3>
+  <h4>Category Totals:</h4>
+  <ul>
+    <li *ngFor="let category of (categoryTotals | keyvalue)">
+      {{ category.key }}: {{ category.value | currency: 'INR' }}
+    </li>
+  </ul>
+</div>

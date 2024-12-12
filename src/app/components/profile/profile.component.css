@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  .profile-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .profile-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .profile-pic {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .profile-pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .profile-pic input {
+    display: none;
+  }
+  .profile-pic label {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .profile-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .profile-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .profile-form button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .profile-form button:hover {
+    background: #218838;
+  }
+  .profile-form{
+    margin-bottom: 50px;
+  }

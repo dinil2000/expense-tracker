@@ -1,0 +1,34 @@
+<div class="login-container">
+    <div class="login-form">
+      <h2>Login</h2>
+      <form >
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="user.userName"
+            name="username"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="user.password"
+            name="password"
+            required
+          />
+        </div>
+  
+        <button (click)="loginUser()" type="submit" class="login-button">Login</button>
+      </form>
+      <p class="signup-text">
+        Don't have an account? <a routerLink="/signup">Sign Up</a>
+      </p>
+    </div>
+  </div>
+  

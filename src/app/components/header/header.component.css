@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  justify-content: space-around;
+  padding: 1rem;
+background-color: rgb(205, 205, 192);
+
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+}
+
+.toolbar-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.nav-item {
+  text-decoration: none;
+  margin-right: 16px;
+  color: white;
+}
+
+button[mat-raised-button] {
+  margin-left: 16px;
+}
+
+.user-name {
+  color: black; /* Set the text color to black */
+  font-weight: bold; /* Optional: Make the text bold */
+  font-size: 25px; /* Optional: Adjust font size */
+}
+.btn{
+  size: 20px;
+  height: 60px;
+  shape-margin: 1px;
+}

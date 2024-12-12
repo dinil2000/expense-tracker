@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #320101;
+        padding-top: 100px;
+    padding-bottom: 200px;
+    color: white;
+  }
+  #chart {
+    width: 100%; /* Makes chart full width */
+    max-width: 800px; /* Max width to prevent charts from becoming too large */
+    margin: 0 auto; /* Centers the chart horizontally */
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    #chart {
+      max-width: 100%; /* Adjust the max-width on smaller screens */
+    }
+  }
+  .chart-main{
+   
+  }
+  
