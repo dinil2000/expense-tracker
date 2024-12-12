@@ -69,11 +69,11 @@ export class AuthService {
           this.isLoggedIn = true;
           this.scheduleAutoLogout(3600 * 1000); // Schedule auto logout
         }
-        console.log("current: ", localStorage.getItem('currentUser'));
+        // console.log("current: ", localStorage.getItem('currentUser'));
         
       }),
       catchError((error) => {
-        console.error('Login failed:', error);
+        // console.error('Login failed:', error);
         return of(null); // Return null or handle error appropriately
       })
     );
