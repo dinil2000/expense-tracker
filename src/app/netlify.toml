@@ -1,6 +1,6 @@
 [build]
 command = "npm run build"
-publish = "/build"
+publish = "dist/expense-tracker"  # Replace 'your-project-name' with your Angular app's output directory
 base = "/"
 
 [[redirects]]
