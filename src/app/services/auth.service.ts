@@ -17,7 +17,9 @@ export interface CurrentUser {
 export class AuthService {
  
   
-  private apiUrl = 'http://localhost:5000/api/auth'; // Adjust to match your backend route
+  //private apiUrl = 'http://localhost:5000/api/auth'; // Adjust to match your backend route
+  private apiUrl = 'https://expensetrackerbackend-2-5yap.onrender.com/api/auth';
+
   public isLoggedIn = false;
   private currentUser: { name: string; email: string; [key: string]: any } | null = null;
 
