@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ExpenseService {
-  private apiUrl = 'http://localhost:5000/api/expenses'; // Replace with your JSON server URL
+  private apiUrl = 'https://expensetrackerbackend-2-5yap.onrender.com/api/expenses'; // Replace with your JSON server URL
   private expenseUpdates = new BehaviorSubject<any[]>([]); // BehaviorSubject to hold expenses
 
   // private apiUrl = `${environment.apiUrl}/expenses`;
