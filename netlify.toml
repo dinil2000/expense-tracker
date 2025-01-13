@@ -1,0 +1,9 @@
+[build]
+command = "ng build --configuration=production"
+publish = "dist/expense-tracker" # Update if your app's build folder is named differently
+base = "/"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
