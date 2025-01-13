@@ -1,6 +1,6 @@
 [build]
 command = "ng build --configuration=production"
-publish = "dist/expense-tracker" # Update if your app's build folder is named differently
+publish = "dist/expense-tracker/browser" # Update if your app's build folder is named differently
 base = "/"
 
 [[redirects]]
